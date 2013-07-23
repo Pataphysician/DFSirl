@@ -99,7 +99,7 @@ setTimeout(function(){
   grid[saveGame.find({userId: Meteor.userId()}, {sort: [["timestamp", "desc"]]}).fetch()[0].placement[2].y][saveGame.find({userId: Meteor.userId()}, {sort: [["timestamp", "desc"]]}).fetch()[0].placement[2].x].addClass('chest');
   
   grid[saveGame.find({userId: Meteor.userId()}, {sort: [["timestamp", "desc"]]}).fetch()[0].placement[1].y][saveGame.find({userId: Meteor.userId()}, {sort: [["timestamp", "desc"]]}).fetch()[0].placement[1].x].addClass('skeleton');
-  
+    
   //saveGame.find({userId: Meteor.userId()}, {sort: [["timestamp", "desc"]]}).fetch()[0].placement[0].x
   
   
