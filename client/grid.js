@@ -25,20 +25,9 @@ for (var row = 0; row < gHeight; row++) {
 	console.log(rowT, "\n");
 }
 
+
 Template.grid.events({
 	'click .make-grid': function() {
-		for (var row = 0; row < gHeight; row++) {
-			for (var col = 0; col < gWidth; col++) {
-				Grid.insert({
-					userId: Meteor.userId(),
-					bugger: "#",
-					x: col,
-					y: row
-				});				
-			}
-		}
-		console.log("sdasd");
-		var curGrid = Grid.findOne({userId: Meteor.user()});
-		Session.set("grid", curGrid);
+
 	}
 });

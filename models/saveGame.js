@@ -1,0 +1,1 @@
+saveGame = new Meteor.Collection('savegame');
