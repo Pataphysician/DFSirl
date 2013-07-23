@@ -34,8 +34,7 @@ Template.grid.events({
 					bugger: "#",
 					x: col,
 					y: row
-
-				});
+				});				
 			}
 		}
 		console.log("sdasd");

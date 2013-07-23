@@ -1,17 +1,14 @@
 @import 'normalize.less';
 
-body {
-
+.clearfix() {
+	zoom: 1;
+	&:before { content: ''; display: block; }
+	&:after { content: ''; display: table; clear: both; }
 }
 
-.background {
-	//background-image: url(public/bg.jpg) no-repeat center center fixed;
-	//background-color: green;
+body {
 	width: 100%;
 	height: 100%;
-	position: absolute;
-	background-size: cover;
-	overflow: hidden;
 }
 
 	.model{
@@ -21,13 +18,8 @@ body {
 		z-index: 999;
 		left: 0;
 		top: 0;
-		background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,.6) 0%, rgba(0,0,0,1) 100%);
-		background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(0,0,0,.6)), color-stop(100%,rgba(0,0,0,1)));
-		background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,.6) 0%,rgba(0,0,0,1) 100%);
-		background: -o-radial-gradient(center, ellipse cover, rgba(0,0,0,.6) 0%,rgba(0,0,0,1) 100%);
-		background: -ms-radial-gradient(center, ellipse cover, rgba(0,0,0,.6) 0%,rgba(0,0,0,1) 100%);
-		background: radial-gradient(ellipse at center, rgba(0,0,0,.6) 0%,rgba(0,0,0,1) 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=1 );
+		background: url('/bg.jpg') no-repeat center center fixed;
+		background-size: cover;
 		.wrap{
 			max-width: 440px;
 			margin: 100px auto 0;
@@ -54,38 +46,47 @@ body {
 
 			}
 			.box{
-				background: #ddd;
+				background: rgba(255,255,255,.1);
+				border: 1px solid #000;
+				box-shadow: inset 0 0 0 1px rgba(255,255,255,.05), inset 0 1px 0 rgba(255,255,255,.1);
+				border-radius: 6px;
 				padding: 20px;
 				.clearfix;
 				.input{
 					width: 94%;
 					padding: 0 3%;
-					font-size: 17px;
+					font-size: 24px;
 					color: #333;
 					height: 44px;
+					line-height: 52px;
 					background: #fff;
 					border: 0;
 					margin: 0 0 20px;
 					box-shadow: 0 0 0 1px rgba(0,0,0,.05);
+					border-radius: 4px;
+					font-family: Rumpelstiltskin;
+					-webkit-font-smoothing: antialiased;
 				}
 				.join{
 					border: 0;
 					display: inline-block;
 					float: right;
 					height: 44px;
-					line-height: 44px;
+					line-height: 48px;
 					padding: 3px 10px;
-					background: #09C;
+					background: #f2a729;
 					color: #fff;
 					font-weight: bold;
-					font-size: 20px;
+					font-size: 32px;
 					text-transform: uppercase;
 					-webkit-font-smoothing: antialiased;
 					text-decoration: none;
 					font-family: Rumpelstiltskin;
+					border-radius: 4px;
+					text-shadow: 1px 1px 0 #c33104;
 				}
 				.join:hover {
-					background-color: #3AD;
+					background-color: #eeb653;
 				}
 			}
 		}
