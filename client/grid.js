@@ -109,7 +109,7 @@ setTimeout(function(){
 
 
   moveToSpot(pos, pos.row, pos.col);
-
+  
   $(document).keydown(function(e){
     // up key
     if (e.keyCode == 38) {
