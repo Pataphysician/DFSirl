@@ -6,12 +6,30 @@ loggedIn = function () {
   console.log("got gamer", gamer);
   Session.set("gamer", gamer);
 
-  player = Session.get("gamer");
-  Gamers.update(gamer._id, {$set: {online: true}} ); 
+  newGame(6, 4);
 
   $('#login').fadeOut();
 
 	
+}
+
+getRandomInt = function(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+newGame = function(width, height) {
+	
+	saveGame.insert({
+		timestamp: Date.now(),
+		userId: Meteor.userId(),
+		placement: [{name: "Robin", x: 0, y: getRandomInt(0, height - 1)}, {name: "Skeleton", x: 5, y: getRandomInt(0, height - 1)}, {name: "chest", x: 3, y: 1}],
+		win: false
+
+	});
+
+	console.log("sdasd");
+	var game = saveGame.findOne({userId: Meteor.user()});
+	Session.set("game", game);
 }
 
 Template.splash.events({
