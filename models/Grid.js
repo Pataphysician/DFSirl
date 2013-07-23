@@ -1,0 +1,1 @@
+Grid = new Meteor.Collection('grid');

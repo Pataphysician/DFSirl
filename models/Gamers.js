@@ -1,0 +1,1 @@
+Gamers = new Meteor.Collection('gamers');

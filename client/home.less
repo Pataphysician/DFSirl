@@ -1,0 +1,92 @@
+@import 'normalize.less';
+
+body {
+
+}
+
+.background {
+	//background-image: url(public/bg.jpg) no-repeat center center fixed;
+	//background-color: green;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background-size: cover;
+	overflow: hidden;
+}
+
+	.model{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 999;
+		left: 0;
+		top: 0;
+		background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,.6) 0%, rgba(0,0,0,1) 100%);
+		background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(0,0,0,.6)), color-stop(100%,rgba(0,0,0,1)));
+		background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,.6) 0%,rgba(0,0,0,1) 100%);
+		background: -o-radial-gradient(center, ellipse cover, rgba(0,0,0,.6) 0%,rgba(0,0,0,1) 100%);
+		background: -ms-radial-gradient(center, ellipse cover, rgba(0,0,0,.6) 0%,rgba(0,0,0,1) 100%);
+		background: radial-gradient(ellipse at center, rgba(0,0,0,.6) 0%,rgba(0,0,0,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=1 );
+		.wrap{
+			max-width: 440px;
+			margin: 100px auto 0;
+			h1{
+				text-align: center;
+				color: #FFAE00;
+				font-family: Rumpelstiltskin;
+				font-size: 80px;
+				//font-weight: bold;
+				-webkit-font-smoothing: antialiased;
+				-webkit-text-stroke-color: #6D3412;
+				-webkit-text-stroke-width: .5px;
+				
+
+				// border-style: solid;
+				// border-width: 5px;
+				// border-color: #6D3412;
+			}
+			p{
+				font-family: Rumpelstiltskin;
+				color: #ddd;
+				font-size: 18px;
+				line-height: 20px;
+
+			}
+			.box{
+				background: #ddd;
+				padding: 20px;
+				.clearfix;
+				.input{
+					width: 94%;
+					padding: 0 3%;
+					font-size: 17px;
+					color: #333;
+					height: 44px;
+					background: #fff;
+					border: 0;
+					margin: 0 0 20px;
+					box-shadow: 0 0 0 1px rgba(0,0,0,.05);
+				}
+				.join{
+					border: 0;
+					display: inline-block;
+					float: right;
+					height: 44px;
+					line-height: 44px;
+					padding: 3px 10px;
+					background: #09C;
+					color: #fff;
+					font-weight: bold;
+					font-size: 20px;
+					text-transform: uppercase;
+					-webkit-font-smoothing: antialiased;
+					text-decoration: none;
+					font-family: Rumpelstiltskin;
+				}
+				.join:hover {
+					background-color: #3AD;
+				}
+			}
+		}
+	}
