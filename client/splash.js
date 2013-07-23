@@ -17,18 +17,21 @@ getRandomInt = function(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+//saveGame.find({userId: Meteor.userId()},{sort:[["timestamp", "desc"]]}).fetch()[0].board.height
+
 newGame = function(width, height) {
 	
 	saveGame.insert({
 		timestamp: Date.now(),
 		userId: Meteor.userId(),
+		board: {width: width, height: height},
 		placement: [{name: "Robin", x: 0, y: getRandomInt(0, height - 1)}, {name: "Skeleton", x: 5, y: getRandomInt(0, height - 1)}, {name: "chest", x: 3, y: 1}],
 		win: false
 
 	});
 
 	console.log("sdasd");
-	var game = saveGame.findOne({userId: Meteor.user()});
+	var game = saveGame.find({}, {sort: [["timestamp", "asc"]]});
 	Session.set("game", game);
 }
 
