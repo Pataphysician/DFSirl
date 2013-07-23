@@ -1,5 +1,4 @@
 loggedIn = function () {
-
   console.log("Logged in as", Meteor.user());
 
   gamer = Gamers.findOne({userId: Meteor.userId()});
@@ -9,8 +8,6 @@ loggedIn = function () {
   newGame(6, 4);
 
   $('#login').fadeOut();
-
-	
 }
 
 getRandomInt = function(min, max) {
