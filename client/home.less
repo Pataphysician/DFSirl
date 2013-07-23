@@ -6,9 +6,47 @@
 	&:after { content: ''; display: table; clear: both; }
 }
 
-body {
+.border-radius(@px: 4px){
+	-webkit-border-radius: @px;
+	border-radius: @px;
+}
+.speed-up{
+	transform: translate3d(0,0,0);
+	-webkit-transform: translate3d(0,0,0);
+}
+.flicker{
+	-webkit-backface-visibility: hidden;
+	-webkit-perspective: 1000;
+}
+.transition(@target:all, @duration:200s, @ease:linear) {
+	-webkit-transition: @target @duration @ease;
+	-moz-transition: @target @duration @ease;
+	-o-transition: @target @duration @ease;
+	transition: @target @duration @ease;
+}
+
+body{
 	width: 100%;
 	height: 100%;
+	overflow: hidden;
+	position: absolute;
+}
+
+.forest-bg{
+	background: url('/forest-bg.jpg') no-repeat top left;
+	width: 140%;
+	height: 120%;
+	left: -20%;
+	position: absolute;
+	background-size: 100%;
+	.transition(all, 200ms, ease);
+}
+
+.glow{
+	background: radial-gradient(ellipse at center,rgba(0,0,0,0) 50%, rgba(0,0,0,.4) 100%);
+	width: 100%;
+	height: 100%;
+	position: absolute;
 }
 
 	.model{
@@ -93,3 +131,69 @@ body {
 			}
 		}
 	}
+
+#board{
+	position: absolute;
+	width: 1900px;
+	height: 2000px;
+	left: 50%;
+	top: 50%;
+	.transition(all, 200ms, ease);
+	.clearfix;
+	.square{
+		float: left;
+		width: 64px;
+		height: 64px;
+		background: #ddd;
+		opacity: .3;
+		opacity: 1;
+		.transition(opacity, 400ms, ease);
+		position: relative;
+	}
+	.floor-forest .icon{
+		background: url('/forest-floor.png') no-repeat top left;
+		position: absolute;
+		height: 132px;
+		width: 64px;
+	}
+	.center .hero{
+		background: url('/hero.png') no-repeat top left;
+		position: absolute;
+		height: 123px;
+		width: 64px;
+		margin: -64px 0 0; 
+		z-index: 2;
+	}
+	.chest .chest-icon{
+		background: url('/chest.png') no-repeat top left;
+		position: absolute;
+		height: 64px;
+		width: 64px;
+	}
+	.skeleton .skeleton-icon{
+		background: url('/chest.png') no-repeat top left;
+		position: absolute;
+		height: 64px;
+		width: 64px;
+	}
+	.visible{
+		opacity: 1;
+	}
+	/*
+[data-background=green]{
+		background: #aeee00;
+	}
+	[data-background=green-2]{
+		background: #8cb618;
+	}
+	[data-background=teal]{
+		background: #00ee8c;
+	}
+	[data-background=teal-2]{
+		background: #1bb374;
+	}
+*/
+	.center{
+		background: #333;
+	}
+}

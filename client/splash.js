@@ -17,8 +17,6 @@ getRandomInt = function(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-//saveGame.find({userId: Meteor.userId()},{sort:[["timestamp", "desc"]]}).fetch()[0].board.height
-
 newGame = function(width, height) {
 	
 	saveGame.insert({

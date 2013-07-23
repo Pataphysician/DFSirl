@@ -19,10 +19,11 @@ util = {
 
 // TODO: remove timeout
 setTimeout(function(){
-  var max_cols = 4,
-      max_rows = 6,
+  var max_cols = saveGame.find({userId: Meteor.userId()},{sort:[["timestamp", "desc"]]}).fetch()[0].board.width,
+      max_rows = saveGame.find({userId: Meteor.userId()},{sort:[["timestamp", "desc"]]}).fetch()[0].board.height,
       grid = util.create2DArray(max_rows, max_cols),
-      pos = {row: 0, col: 0},
+      //pos = {row: 0, col: 0},
+      pos = {row: saveGame.find({userId: Meteor.userId()}, {sort: [["timestamp", "desc"]]}).fetch()[0].placement[0].y, col: saveGame.find({userId: Meteor.userId()}, {sort: [["timestamp", "desc"]]}).fetch()[0].placement[0].x},
       colors = ['green', 'green', 'green', 'green-2', 'teal', 'teal-2'],
       i, j, randomBG, square;
 
@@ -35,21 +36,26 @@ setTimeout(function(){
       return pos;
     }
     console.log('moving');
-    $('.grid').find('.center').removeClass('center');
+    $('#board').find('.center').removeClass('center');
     grid[r][c].addClass('center');
     centered(grid[r][c]);
     return {'row': r, 'col': c};
   }
 
   var centered = function(el){
-    var grid = $('.grid');
+    var grid = $('#board');
+    var forestBg = $('.forest-bg');
     if (grid.length) {
       var leftPos = el.offset().left - grid.offset().left;
       var topPos = el.offset().top - grid.offset().top;
 
       grid.css({
-        'margin-left': -(leftPos + 50),
-        'margin-top': -(topPos + 50),
+        'margin-left': -(leftPos + 32),
+        'margin-top': -(topPos + 32),
+      });
+      forestBg.css({
+        'margin-left': -(leftPos / 4),
+        'margin-top': -(topPos / 4),
       });
 
       /*setTimeout(function() {
@@ -82,13 +88,21 @@ setTimeout(function(){
   for (i = 0; i < max_rows; i++) {
     for (j =0; j < max_cols; j++) {
       randomBG = util.randomPickFromArray(colors);
-      square = $(document.createElement('li')).addClass('square').attr('data-background', randomBG);;
+      square = $(document.createElement('li')).addClass('square').addClass('floor-forest').attr('data-background', randomBG).append('<div class="icon"></div><div class="hero"></div><div class="skeleton-icon"></div><div class="chest-icon"></div>');
       $('#board').append(square);
       grid[i][j] = square;
     }
   }
+  
   grid[0][0].addClass('center');
-
+  
+  grid[saveGame.find({userId: Meteor.userId()}, {sort: [["timestamp", "desc"]]}).fetch()[0].placement[2].y][saveGame.find({userId: Meteor.userId()}, {sort: [["timestamp", "desc"]]}).fetch()[0].placement[2].x].addClass('chest');
+  
+  grid[saveGame.find({userId: Meteor.userId()}, {sort: [["timestamp", "desc"]]}).fetch()[0].placement[1].y][saveGame.find({userId: Meteor.userId()}, {sort: [["timestamp", "desc"]]}).fetch()[0].placement[1].x].addClass('skeleton');
+  
+  //saveGame.find({userId: Meteor.userId()}, {sort: [["timestamp", "desc"]]}).fetch()[0].placement[0].x
+  
+  
   $('#board').css('width', $('.square').width() * max_cols);
 
   $('#board').show();
