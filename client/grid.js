@@ -102,6 +102,20 @@ setTimeout(function(){
     
   //saveGame.find({userId: Meteor.userId()}, {sort: [["timestamp", "desc"]]}).fetch()[0].placement[0].x
   
+  grid[0][0].addClass('wall');
+  grid[0][1].addClass('wall');
+  grid[0][2].addClass('wall');
+  grid[0][3].addClass('wall');
+  grid[0][4].addClass('wall');
+  
+  grid[1][0].addClass('wall');
+  grid[2][0].addClass('wall');
+  grid[3][0].addClass('wall');
+  grid[4][0].addClass('wall');
+  grid[5][0].addClass('wall');
+  grid[6][0].addClass('wall');
+  grid[7][0].addClass('wall');
+  
   
   $('#board').css('width', $('.square').width() * max_cols);
 

@@ -5,7 +5,7 @@ loggedIn = function () {
   console.log("got gamer", gamer);
   Session.set("gamer", gamer);
 
-  newGame(6, 4);
+  newGame(8, 5);
 
   $('#login').fadeOut();
 }
