@@ -20,7 +20,7 @@ newGame = function(width, height) {
 		timestamp: Date.now(),
 		userId: Meteor.userId(),
 		board: {width: width, height: height},
-		placement: [{name: "Robin", x: 0, y: getRandomInt(0, height - 1)}, {name: "Skeleton", x: 5, y: getRandomInt(0, height - 1)}, {name: "chest", x: 3, y: 1}],
+		placement: [{name: "Robin", x: 1, y: getRandomInt(0, height - 2)}, {name: "Skeleton", x: 6, y: getRandomInt(0, height - 2)}, {name: "chest", x: 4, y: 2}],
 		win: false
 
 	});
